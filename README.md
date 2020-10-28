@@ -1,78 +1,84 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# The Wobsite
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+This is the Github repository for the personal webpage of Breki Tomasson.
 
-## About Laravel
+All code is made public as this page is, in a way, a demonstration of my ability to write clean and intelligent code 
+without having to rely on a large framework of any kind, relying instead on my own code and on the most relevant third
+party libraries. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## The Requirement
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+To have a personal website, complete wi‚th a blog, a portfolio, some kind of CV or resume, links to social media
+profiles, as well as any other additional bells and whistles that make for a good presentation of who I am, what I do,
+what I want to do more of and what I have done in the past.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## The Challenge
 
-## Learning Laravel
+To do so using PHP and JavaScript without relying on any large frameworks that provide an environment that promotes lazy
+development. This means that I am not allowed to use Laravel, React, Vue, and so on. One of the biggest issues here will
+be that this also means that I am not allowed to rely on jQuery or Lodash, two very popular JavaScript packages, as both
+of these are too "framework:y".
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+In terms of language versions, my code will be written assuming the PHP version is `PHP 7.4.x`. As for the JavaScript
+version, I will primarily be writing `ECMAScript 6`-compatible code, but may find myself needing to reach for things
+from ECMAScript 7, 8 or 9. However, all code will be transpiled down to `ECMAScript 5` using Webpack to guarantee the
+best possible browser compatibility.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## But What About ...
 
-## Laravel Sponsors
+If you have checked out `composer.json` and `package.json`, you might have spotted something that you consider to be
+a framework or that is very close to being a framework. Most likely, you're thinking of `Webpack` or `PostCSS`, both
+of which are somewhat "frameworky", for want of a better word. As far as these two packages (and the libraries and
+plugins that are connected to them) go, I consider them to be part of the build pipeline rather than the website
+itself, and have decided to allow them for that purpose.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+As for the CSS library `Tailwind`, I do not consider it to be a framework, but I will grant you the fact that I am 
+stretching the definition somewhat and should probably have built the site without the help of Tailwind.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+## This Looks Familiar ...
 
-## Contributing
+If you think the directory structure looks familiar, it's probably because it is inspired by Laravel. I have worked 
+with Laravel for so long that it just makes sense to me to put most of the code in an `app` folder, put the various 
+configuration files in a `config` folder, keep the public resources in a `public` folder and put all the resources 
+used for the build process in the `resources` folder. This is, however, as far as it goes, as the contents of these
+folders are not the same as the contents of your basic Laravel installation.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+I have also written a number of "Helpers" (see the `app/Helpers` directory) that are directly inspired by Laravel in
+case I find myself reaching for a method that is part of Laravel rather than being a part of PHP. These methods have
+been written by me, not copied from the Laravel source, even though their name and functionality may often be the same
+or similar. 
 
-## Code of Conduct
+## Thanks, Acknowledgments and Best Wishes
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+If you find anything in this repository to be good or great, it is only because I am standing on the shoulders of
+giants. I have many people to thank for my journey as a developer;  because of the many great conversations that I have
+had with them, because of the great code that they have written and which has inspired me, and because of the many
+packages that they have made available for me to use in my own projects. They are surely too many to mention, but the
+first couple of people that come to mind are:
 
-## Security Vulnerabilities
+`@TODO`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Copyright, Permissions, Trademarks, Licences, etc.
 
-## License
+There are two different licenses to consider for this website, one for my code and one for my non-code creative output.
+The latter category includes any blog posts I write, any visual or auditory productions I make, etc. This `README` file,
+for example, falls under the "non-code" part of the license.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**All JavaScript and PHP code _written by me_ is under the GNU General Public License.**
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+See more details regarding this license at [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
+
+**Non-code content is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/) Licence**,
+meaning you are allowed to share (copy and redistribute) the material in any medium or format so long as you:
+
+- give appropriate credit, provide a link to the license, and indicate if changes were made, and
+- do not use the material for commercial purposes.
+
+If you were to remix, transform, or build upon the (non-code) material, you may not distribute the modified material,
+even if you give credit and use it for non-commercial purposes. Fair Use rules do apply to non-code content, so quoting
+small sections of text will **not** be considered a remix or transformation, so long as an attribution to the original
+material exists.
