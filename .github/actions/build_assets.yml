@@ -1,0 +1,35 @@
+name: Build Assets
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: Setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          coverage: none
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Compile Assets
+        run: npm run production
