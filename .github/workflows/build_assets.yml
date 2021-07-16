@@ -1,13 +1,11 @@
 name: Build Assets
 
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   tests:
     runs-on: ubuntu-latest
-    name: Setup
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -29,7 +27,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-suggest
 
       - name: Install NPM dependencies
-        run: npm install
+        run: npm ci
 
       - name: Compile Assets
         run: npm run production
