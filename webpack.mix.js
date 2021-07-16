@@ -8,8 +8,8 @@ mix.disableNotifications()
     })
 
 // Do the things and the stuff with Javascript.
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/assets/js')
 
 // Do the things and the stuff with SASS.
-mix.sass('resources/sass/app.scss', 'public/css')
+mix.sass('resources/sass/app.scss', 'public/assets/css')
     .tailwind('./tailwind.config.js');
