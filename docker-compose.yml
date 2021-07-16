@@ -1,0 +1,52 @@
+version: "3.7"
+services:
+
+  app:
+    build:
+      args:
+        user: breki
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: wobsite
+    container_name: wobsite-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - wobsite
+
+  db:
+    image: postgres
+    container_name: wobsite-db
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - wobsite
+
+  redis:
+    image: redis
+    container_name: wobsite-redis
+    restart: unless-stopped
+    networks:
+      - wobsite
+
+  nginx:
+    image: nginx
+    container_name: wobsite-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    networks:
+      - wobsite
+
+networks:
+  wobsite:
+    driver: bridge

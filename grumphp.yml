@@ -1,0 +1,82 @@
+grumphp:
+  hooks_dir: ~
+  hooks_preset: local
+  stop_on_failure: true
+  ignore_unstaged_changes: false
+  process_timeout: 180
+  fixer:
+    enabled: true
+    fix_by_default: false
+  parallel:
+    enabled: true
+    max_workers: 16
+  environment:
+    files:
+      - .env
+  tasks:
+    composer:
+      file: ./composer.json
+      no_check_all: false
+      no_check_lock: false
+      no_check_publish: false
+      no_local_repository: false
+      with_dependencies: false
+      strict: false
+    composer_normalize:
+      indent_size: ~
+      indent_style: ~
+      no_update_lock: true
+      verbose: false
+    composer_require_checker:
+      composer_file: composer.json
+      config_file: ~
+      ignore_parse_errors: false
+      triggered_by: [ 'composer.json', 'composer.lock', '*.php' ]
+    jsonlint:
+      ignore_patterns: [ ]
+      detect_key_conflicts: false
+    pest:
+      config_file: ~
+      testsuite: ~
+      group: [ ]
+      always_execute: false
+    phplint:
+      exclude: [ ]
+      jobs: ~
+      short_open_tag: false
+      ignore_patterns: [ ]
+      triggered_by: [ 'php', 'phtml', 'php3', 'php4', 'php5' ]
+    phpcsfixer:
+      allow_risky: ~
+      cache_file: ~
+      config: ~
+      rules: [ ]
+      using_cache: ~
+      config_contains_finder: true
+      verbose: true
+      diff: false
+      triggered_by: [ 'php' ]
+    phpmd:
+      whitelist_patterns: [ ]
+      exclude: [ ]
+      report_format: text
+      ruleset: [ 'cleancode', 'codesize', 'naming' ]
+      triggered_by: [ 'php' ]
+    phpparser:
+      ignore_patterns: [ ]
+      kind: php7
+      visitors: { }
+      triggered_by: [ php ]
+    phpstan:
+      autoload_file: ~
+      configuration: ~
+      level: null
+      force_patterns: [ ]
+      ignore_patterns: [ ]
+      triggered_by: [ 'php' ]
+      memory_limit: "-1"
+      use_grumphp_paths: true
+    phpversion:
+      project: '8.0'
+  testsuites: []
+  extensions: []
